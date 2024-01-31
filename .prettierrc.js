@@ -1,7 +1,4 @@
 module.exports = {
-  arrowParens: 'avoid',
-  bracketSameLine: true,
-  bracketSpacing: false,
-  singleQuote: true,
-  trailingComma: 'all',
+  ...require('@fruits-chain/prettier-config-preset'),
+  semi: true,
 };
