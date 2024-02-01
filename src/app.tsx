@@ -4,7 +4,7 @@ import '@/assets/custom-theme'
 import { ApolloProvider } from '@apollo/client'
 import { Provider as XiaoshuProvider } from '@fruits-chain/react-native-xiaoshu'
 import React, { useEffect } from 'react'
-import { LogBox } from 'react-native'
+import { LogBox, StatusBar } from 'react-native'
 import * as RNBootSplash from 'react-native-bootsplash'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
@@ -31,6 +31,11 @@ const App = () => {
       <SafeAreaProvider>
         <ErrorBoundary>
           <XiaoshuProvider theme={customTheme}>
+            <StatusBar
+              translucent
+              barStyle="dark-content"
+              backgroundColor="transparent"
+            />
             <UpdateVersion />
             <Router />
           </XiaoshuProvider>

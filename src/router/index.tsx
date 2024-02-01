@@ -8,6 +8,7 @@ import { setErrorRouterInfo } from '@/components/error-boundary'
 import BottomTab from './bottom-tab'
 import { defaultStackRouteOptions } from './config'
 import { navigationRef } from './root-navigation'
+import StackRoutes from './stack'
 import type { RootStackParamList } from './typing'
 
 export type { RootStackScreenProps, RootStackParamList } from './typing'
@@ -32,7 +33,7 @@ const Router: React.FC = () => {
           component={BottomTab}
           options={{ headerShown: false }}
         />
-        {[].map(route => (
+        {StackRoutes.map(route => (
           <Stack.Screen
             key={route.name}
             name={route.name}

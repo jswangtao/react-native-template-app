@@ -1,4 +1,7 @@
-import type { StackNavigationOptions } from '@react-navigation/stack'
+import {
+  CardStyleInterpolators,
+  type StackNavigationOptions,
+} from '@react-navigation/stack'
 import { Platform } from 'react-native'
 
 // import BackArrow from '@/components/back-arrow'
@@ -38,6 +41,7 @@ export const defaultStackRouteOptions: StackNavigationOptions = {
   },
   headerBackTitleVisible: false,
   // headerLeft: props => BackArrow(props),
+  cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
 }
 
 /**
