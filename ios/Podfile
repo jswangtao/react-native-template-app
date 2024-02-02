@@ -50,6 +50,14 @@ target 'ProjectName' do
     # Pods for testing
   end
 
+  # react-native-config
+  ENVFILES = {
+    'Debug' => '$(PODS_ROOT)/../../.env.dev',
+    'Test' => '$(PODS_ROOT)/../../.env.test',
+    'Release' => '$(PODS_ROOT)/../../.env.production',
+    'Demo' => '$(PODS_ROOT)/../../.env.demo',
+  }
+
   post_install do |installer|
     # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
     react_native_post_install(
@@ -58,5 +66,15 @@ target 'ProjectName' do
       :mac_catalyst_enabled => false
     )
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
+
+    # react-native-config
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        if target.name == 'react-native-config'
+          config.build_settings['ENVFILE'] = ENVFILES[config.name]
+        end
+      end
+    end
+
   end
 end
