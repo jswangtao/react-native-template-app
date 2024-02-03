@@ -9,7 +9,7 @@
     "android:test": "react-native run-android --mode 'qaDebug' --appIdSuffix 'test'",
     "android:demo": "react-native run-android --mode 'demoDebug' --appIdSuffix 'demo'",
     "ios": "react-native run-ios --scheme 'ProjectNameDev' --simulator iPhone 15 Pro",
-    "ios:test": "react-native run-ios --scheme 'ProjectNameTest' --simulator iPhone 15 Pro",
+    "ios:test": "react-native run-ios --scheme 'ProjectNameTest'",
     "ios:demo": "react-native run-ios --scheme 'ProjectNameDemo' --simulator iPhone 15 Pro",
     "ios:prod": "react-native run-ios --scheme 'ProjectNameProduction' --simulator iPhone 15 Pro",
     "start": "react-native start",
