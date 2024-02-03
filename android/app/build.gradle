@@ -1,4 +1,12 @@
 apply plugin: "com.android.application"
+project.ext.envConfigFiles = [
+        dev: ".env.dev",
+        qa: ".env.test",
+        demo: ".env.demo",
+        production: ".env.production",
+        anothercustombuild: ".env",
+]
+
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle" // react-native-config
 apply plugin: "com.facebook.react"
 
@@ -80,7 +88,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "0.0.1",
+        versionName "0.0.1"
         resValue "string", "build_config_package", "com.projectname" // react-native-config
     }
     signingConfigs {
@@ -103,6 +111,29 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        dev {
+            applicationIdSuffix ".dev"
+            resValue "string", "app_name", "DEV.ProjectName"
+        }
+        demo {
+            applicationIdSuffix ".demo"
+            resValue "string", "app_name", "DEMO.ProjectName"
+        }
+        qa {
+            applicationIdSuffix ".test"
+            resValue "string", "app_name", "TEST.ProjectName"
+        }
+        production {
+            dimension "default"
+            resValue "string", "app_name", "ProjectName"
+        }
+    }
+
+
 }
 
 dependencies {
