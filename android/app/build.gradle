@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+// react-native-config 与多渠道配置对应关系
 project.ext.envConfigFiles = [
         dev: ".env.dev",
         qa: ".env.test",
@@ -166,6 +167,8 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+
+    implementation("androidx.core:core-splashscreen:1.0.0") // react-native-bootsplash
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {

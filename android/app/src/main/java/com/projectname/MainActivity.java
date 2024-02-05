@@ -6,6 +6,8 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactActivityDelegate;
 
 import android.os.Bundle;
+// react-native-bootsplash
+import com.zoontek.rnbootsplash.RNBootSplash;
 
 public class MainActivity extends ReactActivity {
 
@@ -13,6 +15,10 @@ public class MainActivity extends ReactActivity {
  
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+    // https://github.com/zoontek/react-native-bootsplash/issues/296
+    if (!BuildConfig.DEBUG) {
+      RNBootSplash.init(this); // <- ⬅️ initialize the splash screen
+    }
     // super.onCreate(savedInstanceState); // or super.onCreate(null) with react-native-screens
     super.onCreate(null);
   }
